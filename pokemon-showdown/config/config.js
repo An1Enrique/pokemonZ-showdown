@@ -89,7 +89,7 @@ exports.proxyip = ['127.0.0.1'];
  * Overridable with the MAX_USERS environment variable.
  * @type {number}
  */
-exports.maxusers = process.env.MAX_USERS ? parseInt(process.env.MAX_USERS, 10) : 50;
+exports.maxusers = process.env.MAX_USERS ? parseInt(process.env.MAX_USERS, 10) : 150;
 
 // subprocesses - the number of child processes to use for various tasks.
 //   Can be set to `0` instead of `{...}` to stop using subprocesses, if you're running out of RAM.

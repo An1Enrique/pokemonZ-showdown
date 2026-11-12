@@ -10,3 +10,5 @@ services:
         value: 22.18.0
       - key: LOW_MEMORY
         value: "1"
+      - key: MAX_USERS
+        value: "150"

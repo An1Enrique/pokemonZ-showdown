@@ -1,0 +1,15 @@
+# Heavy original RPG Maker assets & dependencies
+Graphics/
+**/node_modules/
+**/logs/
+pokemon-showdown/dist/
+pokemon-showdown/databases/*.db*
+pokemon-showdown-client/caches/
+pokemon-showdown-client/play.pokemonshowdown.com/caches/
+
+# OS & temp files
+*.log
+.DS_Store
+Thumbs.db
+*~
+*.swp

@@ -1,0 +1,13 @@
+{
+  "name": "pokemonz-showdown",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pokemon Z Showdown (Gen 9 + Mega Evolution + Custom Doubles)",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "build": "npm --prefix pokemon-showdown install --omit=dev --no-optional && cd pokemon-showdown && node build",
+    "start": "node start.js"
+  }
+}

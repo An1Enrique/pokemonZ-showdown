@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Guía de Self-Hosting · Pokémon Z Showdown</title>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<style>
+		:root {
+			color-scheme: dark;
+			--bg: #0f141c;
+			--surface: #171e29;
+			--surface-2: #1f2836;
+			--border: #2c384b;
+			--text: #e6edf5;
+			--muted: #9fb0c7;
+			--accent: #5fa8ff;
+			--accent-2: #8ce0ff;
+			--code-bg: #0b0f16;
+			--warn-bg: rgba(255, 193, 7, 0.1);
+			--warn-border: rgba(255, 193, 7, 0.4);
+		}
+		* { box-sizing: border-box; }
+		body {
+			margin: 0;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+			background: radial-gradient(circle at top center, #1b283b 0%, var(--bg) 55%);
+			color: var(--text);
+			line-height: 1.6;
+		}
+		a { color: var(--accent-2); text-decoration: none; }
+		a:hover { text-decoration: underline; }
+		.container {
+			max-width: 900px;
+			margin: 0 auto;
+			padding: 28px 18px 60px;
+		}
+		.topbar {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 12px;
+			flex-wrap: wrap;
+			margin-bottom: 20px;
+		}
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 9px 15px;
+			border-radius: 8px;
+			background: var(--surface-2);
+			border: 1px solid var(--border);
+			color: var(--text);
+			font-weight: 600;
+			font-size: 0.92rem;
+			cursor: pointer;
+			text-decoration: none;
+		}
+		.btn:hover { background: #263244; text-decoration: none; }
+		.btn-primary {
+			background: #2563eb;
+			border-color: #3b82f6;
+			color: #fff;
+		}
+		.btn-primary:hover { background: #1d4ed8; }
+		.hero {
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: 14px;
+			padding: 26px 22px;
+			text-align: center;
+			margin-bottom: 22px;
+		}
+		.hero img {
+			max-width: 280px;
+			width: 100%;
+			height: auto;
+			margin-bottom: 8px;
+		}
+		.hero h1 {
+			margin: 6px 0 8px;
+			font-size: 1.7rem;
+		}
+		.hero p {
+			margin: 0;
+			color: var(--muted);
+		}
+		.card {
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 20px 22px;
+			margin-bottom: 18px;
+		}
+		.card h2 {
+			margin-top: 0;
+			font-size: 1.25rem;
+			border-bottom: 1px solid var(--border);
+			padding-bottom: 8px;
+		}
+		.card h3 {
+			margin: 16px 0 8px;
+			font-size: 1.05rem;
+			color: var(--accent-2);
+		}
+		.toc {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			margin-top: 14px;
+			justify-content: center;
+		}
+		.toc a {
+			background: var(--surface-2);
+			border: 1px solid var(--border);
+			padding: 5px 11px;
+			border-radius: 999px;
+			font-size: 0.88rem;
+			color: var(--text);
+		}
+		.toc a:hover { border-color: var(--accent); text-decoration: none; }
+		.code-wrap {
+			position: relative;
+			margin: 10px 0 14px;
+		}
+		pre {
+			margin: 0;
+			background: var(--code-bg);
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			padding: 13px 72px 13px 14px;
+			overflow-x: auto;
+			font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+			font-size: 0.9rem;
+			color: #d6e4ff;
+		}
+		code {
+			background: var(--code-bg);
+			padding: 2px 6px;
+			border-radius: 5px;
+			font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+			font-size: 0.9em;
+		}
+		.copy-btn {
+			position: absolute;
+			top: 8px;
+			right: 8px;
+			background: var(--surface-2);
+			border: 1px solid var(--border);
+			color: var(--text);
+			border-radius: 6px;
+			padding: 4px 9px;
+			font-size: 0.78rem;
+			cursor: pointer;
+		}
+		.copy-btn:hover { background: #2c394d; }
+		.note {
+			background: var(--warn-bg);
+			border: 1px solid var(--warn-border);
+			border-radius: 8px;
+			padding: 11px 14px;
+			margin: 12px 0;
+			font-size: 0.93rem;
+		}
+		ul, ol { padding-left: 22px; }
+		li { margin-bottom: 6px; }
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 8px;
+			font-size: 0.94rem;
+		}
+		th, td {
+			text-align: left;
+			padding: 9px 10px;
+			border-bottom: 1px solid var(--border);
+		}
+		th { color: var(--accent-2); }
+		footer {
+			text-align: center;
+			color: var(--muted);
+			font-size: 0.9rem;
+			margin-top: 26px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="topbar">
+			<a class="btn btn-primary" href="/">&#8592; Volver al simulador</a>
+			<a class="btn" href="https://github.com/An1Enrique/pokemonZ-showdown" target="_blank" rel="noopener noreferrer">Repositorio en GitHub</a>
+		</div>
+
+		<section class="hero">
+			<img src="/pokemon-z-logo.png" alt="Pokémon Z Showdown" />
+			<h1>Guía de Self-Hosting</h1>
+			<p>Monta tu propio servidor privado de Pokémon Z Showdown para jugar con amigos, hacer torneos o Randomlockes aunque el servidor público esté saturado.</p>
+			<div class="toc">
+				<a href="#requisitos">Requisitos</a>
+				<a href="#pc">Opción 1: En tu PC</a>
+				<a href="#render">Opción 2: Gratis en Render</a>
+				<a href="#vps">Opción 3: En un VPS</a>
+				<a href="#formatos">Formatos incluidos</a>
+				<a href="#admin">Admin y personalización</a>
+			</div>
+		</section>
+
+		<section class="card" id="requisitos">
+			<h2>Requisitos previos</h2>
+			<ul>
+				<li><strong>Node.js &gt;= 22.18.0</strong> (recomendado Node 22 LTS o superior: <a href="https://nodejs.org" target="_blank" rel="noopener noreferrer">nodejs.org</a>)</li>
+				<li><strong>Git</strong> (<a href="https://git-scm.com" target="_blank" rel="noopener noreferrer">git-scm.com</a>)</li>
+			</ul>
+		</section>
+
+		<section class="card" id="pc">
+			<h2>Opción 1: Montarlo en tu propio PC (Windows / Linux / macOS)</h2>
+			<ol>
+				<li>Clona el repositorio e instala/compila el backend:</li>
+			</ol>
+			<div class="code-wrap">
+				<button class="copy-btn" type="button" onclick="copyCode(this)">Copiar</button>
+				<pre>git clone https://github.com/An1Enrique/pokemonZ-showdown.git
+cd pokemonZ-showdown
+npm run build</pre>
+			</div>
+			<ol start="2">
+				<li>Arranca el servidor y la web con un único comando:</li>
+			</ol>
+			<div class="code-wrap">
+				<button class="copy-btn" type="button" onclick="copyCode(this)">Copiar</button>
+				<pre>npm start</pre>
+			</div>
+			<p>Eso ejecuta <code>start.js</code>, arranca el motor de Showdown en <code>127.0.0.1:8000</code> y abre el cliente web + proxy WebSocket en <code>http://localhost:8080</code>.</p>
+
+			<h3>¿Cómo invitar a amigos a tu servidor casero?</h3>
+			<ul>
+				<li><strong>Túnel rápido sin abrir puertos (recomendado):</strong> instala <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/" target="_blank" rel="noopener noreferrer">cloudflared</a> y ejecuta en otra terminal mientras corre <code>npm start</code>:
+					<div class="code-wrap">
+						<button class="copy-btn" type="button" onclick="copyCode(this)">Copiar</button>
+						<pre>cloudflared tunnel --url http://localhost:8080</pre>
+					</div>
+					Te dará una URL <code>https://...trycloudflare.com</code> lista para pasar por Discord/WhatsApp sin tocar el router.
+				</li>
+				<li><strong>En la misma red Wi-Fi / LAN:</strong> tus amigos entran desde <code>http://TU_IP_LOCAL:8080</code>.</li>
+				<li><strong>Abriendo puerto en el router:</strong> abre el puerto TCP <code>8080</code> hacia la IP local de tu PC.</li>
+			</ul>
+		</section>
+
+		<section class="card" id="render">
+			<h2>Opción 2: Gratis en la nube con Render (sin tarjeta)</h2>
+			<p>El proyecto ya incluye <code>render.yaml</code> listo para usar en el plan gratuito de Render:</p>
+			<ol>
+				<li>Haz <strong>Fork</strong> de <a href="https://github.com/An1Enrique/pokemonZ-showdown" target="_blank" rel="noopener noreferrer">An1Enrique/pokemonZ-showdown</a> en tu cuenta de GitHub.</li>
+				<li>Entra en <a href="https://render.com" target="_blank" rel="noopener noreferrer">Render</a> → <strong>New +</strong> → <strong>Blueprint</strong> (o <strong>Web Service</strong>) y conecta tu fork.</li>
+				<li>Si lo creas manualmente como <strong>Web Service (Node)</strong>, pon esta configuración:
+					<ul>
+						<li><strong>Build Command:</strong> <code>npm run build</code></li>
+						<li><strong>Start Command:</strong> <code>npm start</code></li>
+						<li><strong>Plan:</strong> <code>Free</code></li>
+						<li><strong>Environment Variables:</strong> <code>NODE_VERSION=22.18.0</code> y <code>LOW_MEMORY=1</code></li>
+					</ul>
+				</li>
+			</ol>
+			<div class="note">
+				<strong>Límites del plan gratuito de Render:</strong> si pasa ~15 minutos sin nadie dentro, el servidor entra en reposo y tarda ~30–50 segundos en despertar con la primera visita. Tiene 750 horas al mes y el disco se reinicia en cada deploy.
+			</div>
+		</section>
+
+		<section class="card" id="vps">
+			<h2>Opción 3: En un VPS (Ubuntu / Debian) para 24/7</h2>
+			<p>Si quieres tenerlo abierto 24/7 sin reposo ni límite de horas (p. ej. para torneos grandes):</p>
+			<div class="code-wrap">
+				<button class="copy-btn" type="button" onclick="copyCode(this)">Copiar</button>
+				<pre>git clone https://github.com/An1Enrique/pokemonZ-showdown.git
+cd pokemonZ-showdown
+npm run build
+LOW_MEMORY=1 PORT=8080 pm2 start start.js --name pokemonz-showdown
+pm2 save</pre>
+			</div>
+			<p>Coloca <strong>Nginx</strong> o <strong>Caddy</strong> delante con certificado HTTPS haciendo proxy inverso (HTTP + WebSocket) hacia <code>127.0.0.1:8080</code>. Si tu VPS tiene 2 GB de RAM o más, puedes quitar <code>LOW_MEMORY=1</code>.</p>
+		</section>
+
+		<section class="card" id="formatos">
+			<h2>Formatos disponibles</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Formato</th>
+						<th>Modo</th>
+						<th>Reglas</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>[Gen 9] Pokemon Z Random Battle</code></td>
+						<td>Random Singles</td>
+						<td>Equipos aleatorios de Pokémon Z nivelados por poder (sin necesidad de crear equipo)</td>
+					</tr>
+					<tr>
+						<td><code>[Gen 9] Pokemon Z Random Doubles</code></td>
+						<td>Random Dobles</td>
+						<td>Dobles (2v2) con equipos aleatorios de Pokémon Z</td>
+					</tr>
+					<tr>
+						<td><code>[Gen 9] Pokemon Z Random FFA</code></td>
+						<td>Random FFA (4 jugadores)</td>
+						<td>Battle Royale para 4 jugadores con equipos aleatorios</td>
+					</tr>
+					<tr>
+						<td><code>[Gen 9] Pokemon Z Custom Singles</code></td>
+						<td>Individuales</td>
+						<td>Gen 9 + Megas + Pokémon Z, Item Clause y Sleep Clause</td>
+					</tr>
+					<tr>
+						<td><code>[Gen 9] Pokemon Z Custom Doubles</code></td>
+						<td>Dobles (2v2)</td>
+						<td>Gen 9 + Megas + Pokémon Z, Item Clause y Sleep Clause</td>
+					</tr>
+					<tr>
+						<td><code>[Gen 9] Pokemon Z Libre</code></td>
+						<td>Individuales</td>
+						<td>Sin cláusulas de objeto/sueño, hasta 24 Pokémon, cualquier nivel/EVs (ideal Randomlocke)</td>
+					</tr>
+					<tr>
+						<td><code>[Gen 9] Pokemon Z Libre Doubles</code></td>
+						<td>Dobles (2v2)</td>
+						<td>Mismo modo Libre en formato Dobles</td>
+					</tr>
+					<tr>
+						<td><code>[Gen 9] Pokemon Z Free-For-All</code></td>
+						<td>FFA (4 jugadores)</td>
+						<td>Battle Royale 4 jugadores todos contra todos (Item Clause y Sleep Clause)</td>
+					</tr>
+					<tr>
+						<td><code>[Gen 9] Pokemon Z Libre FFA</code></td>
+						<td>FFA Libre (4 jugadores)</td>
+						<td>Battle Royale 4 jugadores sin restricciones (ideal Randomlocke/pachangas)</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="card" id="admin">
+			<h2>Administración y personalización</h2>
+			<ul>
+				<li><strong>Darte rango administrador (<code>~</code>):</strong> crea o edita <code>pokemon-showdown/config/usergroups.csv</code> y añade una línea con <code>tunombre,~</code>.</li>
+				<li><strong>Variables soportadas por <code>start.js</code>:</strong> <code>PORT</code> (por defecto <code>8080</code>), <code>HOST</code> (<code>0.0.0.0</code>), <code>BACKEND_PORT</code> (<code>8000</code>), <code>LOW_MEMORY=1</code>.</li>
+				<li><strong>Si editas formatos o datos de Pokémon Z:</strong> tras cambiar <code>pokemon-showdown/config/formats.ts</code> o <code>pokemon-showdown/data/mods/pokemonz/</code>, ejecuta <code>cd pokemon-showdown &amp;&amp; node build</code>.</li>
+			</ul>
+		</section>
+
+		<footer>
+			<a href="/">&#8592; Volver a Pokémon Z Showdown</a> &middot;
+			<a href="https://github.com/An1Enrique/pokemonZ-showdown" target="_blank" rel="noopener noreferrer">GitHub</a>
+		</footer>
+	</div>
+
+	<script>
+		function copyCode(btn) {
+			var pre = btn.nextElementSibling;
+			if (!pre) return;
+			var text = pre.textContent;
+			if (navigator.clipboard && navigator.clipboard.writeText) {
+				navigator.clipboard.writeText(text).then(function () {
+					btn.textContent = '¡Copiado!';
+					setTimeout(function () { btn.textContent = 'Copiar'; }, 1500);
+				});
+			}
+		}
+	</script>
+</body>
+</html>

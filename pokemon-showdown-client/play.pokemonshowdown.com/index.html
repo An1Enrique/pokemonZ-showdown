@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--
+                      ,///////,
+      +#########+     ///////,
+   +###############+  ///////
+  +#################+,//////,
+ +###################,/////,
+ ########+   +########////
+                     ////,  PokemonShowdown.com
+ ########+   +########///
+ +###################+//
+  +#################+
+   +###############+
+      +#########+///////,
+                ///////,
+
+Viewing source? We're open source! Check us out on GitHub!
+https://github.com/smogon/pokemon-showdown
+https://github.com/smogon/pokemon-showdown-client (you are here)
+
+Also visit us in the Dev chatroom:
+https://psim.us/dev
+
+-->
+<html><head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+	<title>Pok&eacute;mon Z Showdown!</title>
+	<link rel="shortcut icon" href="favicon.ico" id="dynamic-favicon" />
+	<link rel="stylesheet" href="/style/battle.css?a6670499" />
+	<link rel="stylesheet" href="/style/client2.css?d9911740" />
+	<link rel="stylesheet" href="/style/teambuilder.css?fc603e03" />
+	<meta name="robots" content="noindex" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<!--[if lte IE 8]><script>
+		window.Config = {"oldie": true};
+	</script><![endif]-->
+</head><body>
+	<div id="ps-frame">
+		<div id="header" class="header">
+			<div class="maintabbarbottom"></div>
+			<img class="logo" src="/iconbeta.png" alt="PokÃ©mon Showdown! (beta)" width="50" height="50">
+		</div>
+		<div class="ps-room scrollable" id="room-">
+			<div class="mainmenu-mini-windows">
+				<div class="mini-window" data-roomid="news">
+					<h3 class="mini-window-header"><button class="closebutton" tabindex="-1" aria-label="Close"><i class="fa fa-times-circle"></i></button>News</h3>
+					<div id="room-news" class="mini-window-contents ps-room-light scrollable" style="height: auto;" data-newsid="2">
+						<div class="readable-bg" style="padding: 10px 12px;">
+							<div style="text-align: center; margin-bottom: 6px;">
+								<img src="/pokemon-z-logo.png" alt="Pok&eacute;mon Z" style="max-width: 230px; width: 100%; height: auto; display: inline-block;" />
+							</div>
+							<p style="margin: 4px 0 8px;">Simulador de <strong>Pok&eacute;mon Z</strong> con mec&aacute;nicas de Gen 9, Megaevoluciones activas y formatos Singles, Doubles y Libre.</p>
+							<div style="border-top: 1px solid rgba(128,128,128,0.3); padding-top: 8px; font-size: 0.95em;">
+								<div style="margin-bottom: 6px;"><strong>Anri</strong> &middot; Discord: <strong>ennri</strong></div>
+								<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+									<img src="/avatar-github.png" alt="Avatar GitHub An1Enrique" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; flex-shrink: 0;" />
+									<span>GitHub: <a href="https://github.com/An1Enrique/pokemonZ-showdown" target="_blank" rel="noopener noreferrer">An1Enrique/pokemonZ-showdown</a></span>
+								</div>
+								<div style="border-top: 1px solid rgba(128,128,128,0.2); padding-top: 6px; margin-top: 4px;">
+									<a class="no-panel-intercept" href="/self-host" target="_blank" rel="noopener noreferrer"><strong>Gu&iacute;a Self-Host: monta tu propio servidor</strong></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mainmenu">
+				<div id="loading-message" class="mainmessage">Loading... <noscript>FAILED<br /><br />Pok&eacute;mon Showdown requires JavaScript.</noscript></div>
+			</div>
+			<div class="mainmenufooter">
+				<div class="bgcredit"></div>
+				<small>
+					<a class="no-panel-intercept" href="/self-host" target="_blank" rel="noopener noreferrer">Gu&iacute;a Self-Host</a> | <a href="https://github.com/An1Enrique/pokemonZ-showdown" target="_blank" rel="noopener noreferrer">GitHub</a> | Discord: <strong>ennri</strong><br />
+					<a href="//pokemonshowdown.com/rules" target="_blank">Rules</a> | <a href="//pokemonshowdown.com/credits" target="_blank">Credits</a> | <a href="//pokemonshowdown.com/privacy" target="_blank">Privacy</a>
+				</small>
+			</div>
+		</div>
+	</div>
+	<script nomodule defer src="/js/lib/ps-polyfill.js"></script>
+	<script defer src="/config/config.js?cf053d84"></script>
+	<script defer src="/js/client-core.js?282a5d23"></script>
+	<!-- At this point, background and dark mode are loaded -->
+	
+	<script>
+		function linkStyle(url) {
+			var linkEl = document.createElement('link');
+			linkEl.rel = 'stylesheet';
+			linkEl.href = url;
+			document.head.appendChild(linkEl);
+		}
+		linkStyle("/style/sim-types.css?16eda9db");
+		linkStyle("/style/utilichart.css?a3aa586b");
+		linkStyle("/style/battle-search.css?8d8cd1b7");
+		linkStyle("/style/font-awesome.css");
+	</script>
+
+	<script defer src="/js/battle-dex-data.js?bf3c75b7"></script>
+	<script defer src="/js/battle-dex.js?33b1933b"></script>
+	<script defer src="/js/battle-teams.js?74b672bb"></script>
+	<script defer src="/js/battle-text-parser.js?2c9f6875"></script>
+	<script defer src="/js/client-main.js?5d5723ca"></script>
+	<script nomodule defer src="/js/lib/sockjs-1.4.0-nwjsfix.min.js?cfe52237"></script>
+	<script defer src="/js/client-connection.js?81d31256"></script>
+
+	<script defer src="/js/lib/preact.min.js?ab81f06a"></script>
+	<script defer src="/js/panels.js?1357b9a5"></script>
+	<script defer src="/js/panel-mainmenu.js?7b07652f"></script>
+	<script defer src="/js/panel-rooms.js?e2f213b5"></script>
+	<script defer src="/js/panel-topbar.js?044aebbd"></script>
+	<!-- at this point, the main view is loaded and usable -->
+
+	<script defer src="/js/lib/html-css-sanitizer-minified.js?38f3f7d3"></script>
+	<script defer src="/src/battle-log-misc.js?b280b1f2"></script>
+	<script defer src="/js/server/chat-formatter.js?107b2835"></script>
+	<script defer src="/js/battle-log.js?801b2dee"></script>
+
+	<script defer src="/js/miniedit.js?3e40a0f4"></script>
+	<script defer src="/js/panel-chat-tournament.js?753ce7d6"></script>
+	<script defer src="/js/panel-chat.js?06b5e45a"></script>
+	<!-- at this point, chatrooms are usable -->
+
+	<script defer src="/js/panel-popups.js?1f42cbc7"></script>
+	<script defer src="/js/panel-page.js?fe1f067a"></script>
+	<script defer src="/js/panel-ladder.js?b722bdd0"></script>
+	<script defer src="/js/panel-resources.js?35abfdb5"></script>
+
+	<script defer src="/js/battle-sound.js"></script>
+	<script defer src="/js/lib/jquery-2.2.4.min.js"></script>
+	<script defer src="/data/graphics.js?e9167168"></script>
+	<script defer src="/data/text/en.js?49942577"></script>
+	<script defer src="/js/battle-tooltips.js?22ca019b"></script>
+	<script defer src="/js/battle.js?c538a9ef"></script>
+	<script defer src="/js/battle-choices.js?61d663e4"></script>
+	<script defer src="/js/panel-battle.js?f6b91ae5"></script>
+
+	<script defer src="/data/pokedex.js?f64e683f"></script>
+	<script defer src="/data/moves.js?4781f9a8"></script>
+	<script defer src="/data/items.js?24903126"></script>
+	<script defer src="/data/abilities.js?82500c60"></script>
+	<script defer src="/data/search-index.js?251362db"></script>
+	<script defer src="/data/teambuilder-tables.js?8f07a361"></script>
+	<script defer src="/js/panel-teamdropdown.js?087fb74c"></script>
+	<script defer src="/js/panel-teambuilder.js?21d67420"></script>
+	<script defer src="/js/battle-dex-search.js?d3faafda"></script>
+	<script defer src="/js/battle-searchresults.js?2fa47e85"></script>
+	<script defer src="/js/battle-team-editor.js?779d6762"></script>
+	<script defer src="/js/panel-teambuilder-team.js?1cb08cf1"></script>
+
+	<script defer src="/data/pokedex-mini.js?6bf0134b"></script>
+	<script defer src="/data/pokedex-mini-bw.js?445aaeea"></script>
+	<script defer src="/data/typechart.js?17da8369"></script>
+	<script defer src="/data/aliases.js?34829296"></script>
+	<script defer src="/js/lib/d3.v3.min.js"></script>
+	<script defer src="/js/lib/color-thief.min.js"></script>
+	<script defer src="/data/commands.js?69226eef"></script>
+
+	<script defer src="/js/client-endload.js?b6cc3e7c"></script>
+
+</body></html>
+

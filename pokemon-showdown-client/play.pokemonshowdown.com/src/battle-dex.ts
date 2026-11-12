@@ -446,6 +446,7 @@ export interface SpriteData {
 	isFrontSprite?: boolean;
 	cryurl?: string;
 	shiny?: boolean;
+	localStatic?: boolean;
 }
 
 export interface TeambuilderSpriteData {
@@ -964,6 +965,7 @@ export const Dex = new class implements ModdedDex {
 			isFrontSprite: false,
 			cryurl: '',
 			shiny: options.shiny,
+			localStatic: false,
 		};
 		let name = species.spriteid;
 		let dir;
@@ -1050,21 +1052,43 @@ export const Dex = new class implements ModdedDex {
 		}
 
 		let animatedSprite = false;
-		const localTable = isFront ? (window as any).BattleLocalGen5Sprites : ((window as any).BattleLocalGen5BackSprites || (window as any).BattleLocalGen5Sprites);
-		const localName = this.resolveLocalSpriteName(name, localTable);
-		if (localName) {
-			let chosenName = localName;
-			if (spriteData.gen >= 4 && miscData['frontf'] && options.gender === 'F') {
-				const fName = this.resolveLocalSpriteName(name + '-f', localTable);
-				if (fName) chosenName = fName;
+		if (!Dex.prefs('noanim') && !Dex.prefs('nogif')) {
+			const localAniTable = isFront ? (window as any).BattleLocalAniSprites : ((window as any).BattleLocalAniBackSprites || (window as any).BattleLocalAniSprites);
+			const localAniName = this.resolveLocalSpriteName(name, localAniTable);
+			if (localAniName) {
+				let chosenAni = localAniName;
+				if (spriteData.gen >= 4 && miscData['frontf'] && options.gender === 'F') {
+					const fName = this.resolveLocalSpriteName(name + '-f', localAniTable);
+					if (fName) chosenAni = fName;
+				}
+				const dims = localAniTable?.[chosenAni];
+				if (Array.isArray(dims) && dims.length >= 2) {
+					spriteData.w = dims[0];
+					spriteData.h = dims[1];
+				}
+				spriteData.url += 'gen5ani' + dir + '/' + chosenAni + '.gif';
+				spriteData.localStatic = false;
+				animatedSprite = true;
 			}
-			const dims = localTable?.[chosenName];
-			if (Array.isArray(dims) && dims.length >= 2) {
-				spriteData.w = dims[0];
-				spriteData.h = dims[1];
+		}
+		if (!animatedSprite) {
+			const localTable = isFront ? (window as any).BattleLocalGen5Sprites : ((window as any).BattleLocalGen5BackSprites || (window as any).BattleLocalGen5Sprites);
+			const localName = this.resolveLocalSpriteName(name, localTable);
+			if (localName) {
+				let chosenName = localName;
+				if (spriteData.gen >= 4 && miscData['frontf'] && options.gender === 'F') {
+					const fName = this.resolveLocalSpriteName(name + '-f', localTable);
+					if (fName) chosenName = fName;
+				}
+				const dims = localTable?.[chosenName];
+				if (Array.isArray(dims) && dims.length >= 2) {
+					spriteData.w = dims[0];
+					spriteData.h = dims[1];
+				}
+				spriteData.url += 'gen5' + dir + '/' + chosenName + '.png';
+				spriteData.localStatic = true;
+				animatedSprite = true;
 			}
-			spriteData.url += 'gen5' + dir + '/' + chosenName + '.png';
-			animatedSprite = true;
 		}
 		if (!animatedSprite && !Dex.prefs('noanim') && !Dex.prefs('nogif') && spriteData.gen >= 5) {
 			const animationArray: [AnyObject, string][] = [];
@@ -1083,7 +1107,7 @@ export const Dex = new class implements ModdedDex {
 				dir = animDir + 'ani' + dir;
 				spriteData.w = animationData[facing].w;
 				spriteData.h = animationData[facing].h;
-				spriteData.url += dir + '/' + name + '.gif';
+				spriteData.url = 'https://play.pokemonshowdown.com/sprites/' + dir + '/' + name + '.gif';
 				animatedSprite = true;
 				break;
 			}
@@ -1099,7 +1123,7 @@ export const Dex = new class implements ModdedDex {
 				name += '-f';
 			}
 
-			spriteData.url += dir + '/' + name + '.png';
+			spriteData.url = 'https://play.pokemonshowdown.com/sprites/' + dir + '/' + name + '.png';
 		}
 
 		if (!options.noScale) {

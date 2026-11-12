@@ -1968,6 +1968,9 @@ export class PokemonSprite extends Sprite {
 		super(spriteData, pos, scene);
 		this.cryurl = this.sp.cryurl;
 		this.isFrontSprite = isFrontSprite;
+		if (this.sp.localStatic && !Dex.prefs('noanim')) {
+			this.$el?.addClass('pz-idle-anim');
+		}
 	}
 	override destroy() {
 		if (this.$el) this.$el.remove();
@@ -2169,7 +2172,8 @@ export class PokemonSprite extends Sprite {
 		if (this.$el) {
 			this.$el.stop(true, false);
 			this.$el.remove();
-			const $newEl = $(`<img src="${this.sp.url!}" style="display:none;position:absolute"${this.sp.pixelated ? ' class="pixelated"' : ''} />`);
+			const classes = [this.sp.pixelated ? 'pixelated' : '', (this.sp.localStatic && !Dex.prefs('noanim')) ? 'pz-idle-anim' : ''].filter(Boolean).join(' ');
+			const $newEl = $(`<img src="${this.sp.url!}" style="display:none;position:absolute"${classes ? ` class="${classes}"` : ''} />`);
 			this.$el = $newEl;
 		}
 

@@ -458,6 +458,7 @@ return name;
 
 
 
+
 var Dex=new(function(){function _class2(){var _this=this;this.
 Ability=Ability;this.
 Item=Item;this.
@@ -963,7 +964,8 @@ url:this.spritesPrefix,
 pixelated:true,
 isFrontSprite:false,
 cryurl:'',
-shiny:options.shiny
+shiny:options.shiny,
+localStatic:false
 };
 var name=species.spriteid;
 var dir;
@@ -1050,21 +1052,43 @@ spriteData.cryurl+='.mp3';
 }
 
 var animatedSprite=false;
+if(!Dex.prefs('noanim')&&!Dex.prefs('nogif')){
+var localAniTable=isFront?window.BattleLocalAniSprites:window.BattleLocalAniBackSprites||window.BattleLocalAniSprites;
+var localAniName=this.resolveLocalSpriteName(name,localAniTable);
+if(localAniName){
+var chosenAni=localAniName;
+if(spriteData.gen>=4&&miscData['frontf']&&options.gender==='F'){
+var fName=this.resolveLocalSpriteName(name+'-f',localAniTable);
+if(fName)chosenAni=fName;
+}
+var dims=localAniTable==null?void 0:localAniTable[chosenAni];
+if(Array.isArray(dims)&&dims.length>=2){
+spriteData.w=dims[0];
+spriteData.h=dims[1];
+}
+spriteData.url+='gen5ani'+dir+'/'+chosenAni+'.gif';
+spriteData.localStatic=false;
+animatedSprite=true;
+}
+}
+if(!animatedSprite){
 var localTable=isFront?window.BattleLocalGen5Sprites:window.BattleLocalGen5BackSprites||window.BattleLocalGen5Sprites;
 var localName=this.resolveLocalSpriteName(name,localTable);
 if(localName){
 var chosenName=localName;
 if(spriteData.gen>=4&&miscData['frontf']&&options.gender==='F'){
-var fName=this.resolveLocalSpriteName(name+'-f',localTable);
-if(fName)chosenName=fName;
+var _fName=this.resolveLocalSpriteName(name+'-f',localTable);
+if(_fName)chosenName=_fName;
 }
-var dims=localTable==null?void 0:localTable[chosenName];
-if(Array.isArray(dims)&&dims.length>=2){
-spriteData.w=dims[0];
-spriteData.h=dims[1];
+var _dims=localTable==null?void 0:localTable[chosenName];
+if(Array.isArray(_dims)&&_dims.length>=2){
+spriteData.w=_dims[0];
+spriteData.h=_dims[1];
 }
 spriteData.url+='gen5'+dir+'/'+chosenName+'.png';
+spriteData.localStatic=true;
 animatedSprite=true;
+}
 }
 if(!animatedSprite&&!Dex.prefs('noanim')&&!Dex.prefs('nogif')&&spriteData.gen>=5){
 var animationArray=[];
@@ -1083,7 +1107,7 @@ if(spriteData.gen>=6)spriteData.pixelated=false;
 dir=animDir+'ani'+dir;
 spriteData.w=animationData[facing].w;
 spriteData.h=animationData[facing].h;
-spriteData.url+=dir+'/'+name+'.gif';
+spriteData.url='https://play.pokemonshowdown.com/sprites/'+dir+'/'+name+'.gif';
 animatedSprite=true;
 break;
 }
@@ -1099,7 +1123,7 @@ if(spriteData.gen>=4&&miscData['frontf']&&options.gender==='F'){
 name+='-f';
 }
 
-spriteData.url+=dir+'/'+name+'.png';
+spriteData.url='https://play.pokemonshowdown.com/sprites/'+dir+'/'+name+'.png';
 }
 
 if(!options.noScale){

@@ -1967,7 +1967,10 @@ PokemonSprite=function(_Sprite2){
 function PokemonSprite(spriteData,pos,scene,isFrontSprite){var _this5;
 _this5=_Sprite2.call(this,spriteData,pos,scene)||this;_this5.forme='';_this5.cryurl=undefined;_this5.subsp=null;_this5.$sub=null;_this5.isSubActive=false;_this5.$statbar=null;_this5.isFrontSprite=void 0;_this5.isMissedPokemon=false;_this5.oldsp=null;_this5.statbarLeft=0;_this5.statbarTop=0;_this5.left=0;_this5.top=0;_this5.effects={};
 _this5.cryurl=_this5.sp.cryurl;
-_this5.isFrontSprite=isFrontSprite;return _this5;
+_this5.isFrontSprite=isFrontSprite;
+if(_this5.sp.localStatic&&!Dex.prefs('noanim')){var _this5$$el;
+(_this5$$el=_this5.$el)==null||_this5$$el.addClass('pz-idle-anim');
+}return _this5;
 }_inheritsLoose(PokemonSprite,_Sprite2);var _proto3=PokemonSprite.prototype;_proto3.
 destroy=function destroy(){
 if(this.$el)this.$el.remove();
@@ -2169,7 +2172,8 @@ this.oldsp=null;
 if(this.$el){
 this.$el.stop(true,false);
 this.$el.remove();
-var $newEl=$("<img src=\""+this.sp.url+"\" style=\"display:none;position:absolute\""+(this.sp.pixelated?' class="pixelated"':'')+" />");
+var classes=[this.sp.pixelated?'pixelated':'',this.sp.localStatic&&!Dex.prefs('noanim')?'pz-idle-anim':''].filter(Boolean).join(' ');
+var $newEl=$("<img src=\""+this.sp.url+"\" style=\"display:none;position:absolute\""+(classes?" class=\""+classes+"\"":'')+" />");
 this.$el=$newEl;
 }
 

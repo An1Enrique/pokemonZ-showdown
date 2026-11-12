@@ -124,6 +124,14 @@ PSLoginServer.query(
 ).then(function(res){
 if(!(res!=null&&res.username)){
 PS.user.initializing=false;
+if(!PS.user.named&&!PS.user.loggingIn){
+try{
+var savedName=localStorage.getItem('pz_username');
+if(savedName&&toID(savedName)){
+PS.send("/trn "+savedName);
+}
+}catch(_unused){}
+}
 return;
 }
 
@@ -146,6 +154,9 @@ PS.prefs.set('serversettings',Object.assign({},PS.prefs.serversettings,serverSet
 }
 void Dex.loadTextData().then(function(){return PS.updateTranslatedText();});
 PS.user.setName(fullName,named,avatar);
+if(named&&!PS.user.registered&&!PS.user.group){
+try{localStorage.setItem('pz_username',PS.user.name);}catch(_unused2){}
+}
 PS.teams.loadRemoteTeams();
 return true;
 }case'updatechallenges':{
@@ -206,7 +217,7 @@ receiveChallenges=function receiveChallenges(dataBuf){
 var json;
 try{
 json=JSON.parse(dataBuf);
-}catch(_unused){}
+}catch(_unused3){}
 for(var userid in json.challengesFrom){
 PS.getPMRoom(toID(userid));
 }
@@ -231,7 +242,7 @@ var json;
 this.teamSent=null;
 try{
 json=JSON.parse(dataBuf);
-}catch(_unused2){}
+}catch(_unused4){}
 this.search=json;
 this.update(null);
 };_proto.

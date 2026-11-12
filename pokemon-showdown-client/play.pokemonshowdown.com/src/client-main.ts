@@ -738,6 +738,7 @@ class PSUser extends PSStreamModel<PSLoginState | null> {
 		}
 
 		if (userid === this.userid || !PS.server.registered || (Config.routes as any).action === 'local') {
+			try { localStorage.setItem('pz_username', name); } catch {}
 			PS.send(`/trn ${name}`);
 			this.loggingIn = null;
 			this.update({ success: true });
@@ -828,6 +829,7 @@ class PSUser extends PSStreamModel<PSLoginState | null> {
 		}
 	}
 	logOut() {
+		try { localStorage.removeItem('pz_username'); } catch {}
 		PSLoginServer.query(
 			'logout', { userid: this.userid }
 		);
@@ -2436,6 +2438,11 @@ export const PS = new class extends PSModel {
 				continue;
 			} case 'nametaken': {
 				if (args[2] === 'LOCAL_PASSWORD_REQUIRED') {
+					try {
+						if (localStorage.getItem('pz_username') && toID(localStorage.getItem('pz_username')!) === toID(args[1])) {
+							localStorage.removeItem('pz_username');
+						}
+					} catch {}
 					PS.user.loggingIn = null;
 					PS.user.updateLogin({ name: args[1], needsPassword: true });
 				} else if (args[2] === 'LOCAL_PASSWORD_INVALID') {

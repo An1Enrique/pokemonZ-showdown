@@ -124,6 +124,14 @@ export class MainMenuRoom extends PSRoom {
 			).then(res => {
 				if (!res?.username) {
 					PS.user.initializing = false;
+					if (!PS.user.named && !PS.user.loggingIn) {
+						try {
+							const savedName = localStorage.getItem('pz_username');
+							if (savedName && toID(savedName)) {
+								PS.send(`/trn ${savedName}`);
+							}
+						} catch {}
+					}
 					return;
 				}
 				// | , ; are not valid characters in names
@@ -146,6 +154,9 @@ export class MainMenuRoom extends PSRoom {
 			}
 			void Dex.loadTextData().then(() => PS.updateTranslatedText());
 			PS.user.setName(fullName, named, avatar);
+			if (named && !PS.user.registered && !PS.user.group) {
+				try { localStorage.setItem('pz_username', PS.user.name); } catch {}
+			}
 			PS.teams.loadRemoteTeams();
 			return true;
 		} case 'updatechallenges': {

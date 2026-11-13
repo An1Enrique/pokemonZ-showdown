@@ -1,0 +1,206 @@
+{
+	"delphoxkalos": {
+		"essentialMoves": ["Sable Ardiente", "Lanza Relámpago"],
+		"movepool": ["Sable Ardiente", "Lanza Relámpago", "Sacred Sword", "Swords Dance", "Knock Off", "Wild Charge", "Flare Blitz", "Thunderclap", "Electropunzada"],
+		"abilities": ["Relampagueo", "Blaze"],
+		"items": ["Life Orb", "Choice Band", "Heavy-Duty Boots", "Focus Sash"]
+	},
+	"auretosk": {
+		"essentialMoves": ["Luz Infinita"],
+		"movepool": ["Luz Infinita", "Shadow Claw", "Close Combat", "Volt Tackle", "Bolt Strike", "Fake Out", "Hone Claws", "Taunt", "Volt Switch"],
+		"abilities": ["Aura Dorada"],
+		"items": ["Life Orb", "Choice Band", "Choice Scarf", "Heavy-Duty Boots"]
+	},
+	"chesnaughtkalos": {
+		"essentialMoves": ["Ráfaga Púas"],
+		"movepool": ["Ráfaga Púas", "Mil Flechas", "Disparo Espina", "Close Combat", "Synthesis", "Spikes", "Stealth Rock", "Super Fang", "Leaf Storm"],
+		"abilities": ["Super Luck", "Overgrow"],
+		"items": ["Life Orb", "Leftovers", "Choice Band", "Rocky Helmet"]
+	},
+	"greninjakalos": {
+		"essentialMoves": ["Condena de Mago", "Truco Huevo"],
+		"movepool": ["Condena de Mago", "Truco Huevo", "Hydro Pump", "Psychic", "Expanding Force", "Calm Mind", "Trick Room", "Haze"],
+		"abilities": ["Forma Ilusoria", "Torrent"],
+		"items": ["Life Orb", "Choice Specs", "Focus Sash"]
+	},
+	"sirfetchdkalos": {
+		"essentialMoves": ["Baguetazo"],
+		"movepool": ["Baguetazo", "Close Combat", "Play Rough", "Brave Bird", "Knock Off", "Swords Dance", "First Impression", "Sucker Punch"],
+		"abilities": ["Cuerpo Horneado", "Flame Body"],
+		"items": ["Leek", "Choice Band", "Life Orb", "Assault Vest"]
+	},
+	"bibarelkalos": {
+		"essentialMoves": ["Deslizamiento"],
+		"movepool": ["Deslizamiento", "Icicle Crash", "Superpower", "Swords Dance", "Aqua Jet", "Curse", "Hyper Fang"],
+		"abilities": ["Simple"],
+		"items": ["Life Orb", "Focus Sash", "Sitrus Berry", "Leftovers"]
+	},
+	"kricketunekalos": {
+		"essentialMoves": ["Espada Sedosa", "Escaramuza"],
+		"movepool": ["Espada Sedosa", "Escaramuza", "Sacred Sword", "Sticky Web", "Swords Dance", "Night Slash", "Leaf Blade"],
+		"abilities": ["Cortante", "Contraguardia"],
+		"items": ["Focus Sash", "Life Orb", "Heavy-Duty Boots"]
+	},
+	"lilligantkalos": {
+		"essentialMoves": ["Truco Floral"],
+		"movepool": ["Truco Floral", "Fiery Dance", "Quiver Dance", "Close Combat", "Petal Dance", "Bola de Polen", "Synthesis"],
+		"abilities": ["Despiertallama", "Flame Body"],
+		"items": ["Life Orb", "Focus Sash", "Heavy-Duty Boots", "Leftovers"]
+	},
+	"cofagriguskalos": {
+		"essentialMoves": ["Ferroprisión"],
+		"movepool": ["Ferroprisión", "Shadow Claw", "Iron Head", "Spikes", "Pain Split", "Will-O-Wisp", "Body Press"],
+		"abilities": ["Iron Barbs"],
+		"items": ["Leftovers", "Rocky Helmet"]
+	},
+	"gothitellekalos": {
+		"essentialMoves": ["Maldignición"],
+		"movepool": ["Maldignición", "Infernal Parade", "Nasty Plot", "Flamethrower", "Psychic", "Hex", "Mystical Fire"],
+		"abilities": ["Espanto", "Flame Body"],
+		"items": ["Life Orb", "Heavy-Duty Boots", "Leftovers"]
+	},
+	"reunicluskalos": {
+		"essentialMoves": ["Noxious Torque"],
+		"movepool": ["Noxious Torque", "Poison Jab", "Zen Headbutt", "Psychic", "Recover", "Pain Split", "Acid Armor", "Sludge Bomb"],
+		"abilities": ["Regenerator", "Alquimia Vil", "Corrosion"],
+		"items": ["Leftovers", "Black Sludge", "Assault Vest"]
+	},
+	"rotomz": {
+		"essentialMoves": ["Bolt Beak"],
+		"movepool": ["Bolt Beak", "Night Slash", "Volt Switch", "Plancha Voltaica", "Sucker Punch", "Will-O-Wisp", "Trick"],
+		"abilities": ["Levitate"],
+		"items": ["Choice Scarf", "Choice Band", "Life Orb"]
+	},
+	"pikachukalosz": {
+		"essentialMoves": ["Volt Tackle"],
+		"movepool": ["Volt Tackle", "Dire Claw", "Poison Jab", "Punzada Tóxica", "Thunderbolt", "Quick Attack", "Fake Out"],
+		"abilities": ["Poison Touch"],
+		"items": ["Light Ball"]
+	},
+	"raichukalos": {
+		"essentialMoves": ["Dire Claw", "Volt Tackle"],
+		"movepool": ["Dire Claw", "Volt Tackle", "Rising Voltage", "Wild Charge", "Electropalmas", "Poison Jab", "Thunderbolt"],
+		"abilities": ["Poison Touch", "Poison Point"],
+		"items": ["Life Orb", "Choice Band", "Heavy-Duty Boots"]
+	},
+	"parasectkalos": {
+		"essentialMoves": ["Bug Buzz"],
+		"movepool": ["Bug Buzz", "Psychic", "Giga Drain", "Sludge Bomb", "Pain Split", "Rage Powder", "Spore"],
+		"abilities": ["Neuroforce", "Presencia Rara"],
+		"items": ["Focus Sash", "Leftovers", "Heavy-Duty Boots"]
+	},
+	"porygonzkalos": {
+		"essentialMoves": ["Electro Shot"],
+		"movepool": ["Electro Shot", "Discharge", "Tri Attack", "Nasty Plot", "Recover", "Cargagresión", "Lava Plume", "Ice Beam"],
+		"abilities": ["Adaptability", "Download"],
+		"items": ["Choice Specs", "Choice Scarf", "Life Orb"]
+	},
+	"wailordkalos": {
+		"essentialMoves": ["Tromba Marina", "Aeroblast"],
+		"movepool": ["Tromba Marina", "Aeroblast", "Air Slash", "Hydro Pump", "Scald", "Acrobatics", "Body Slam"],
+		"abilities": ["Aerilate", "Unburden", "Flare Boost"],
+		"items": ["Heavy-Duty Boots", "Leftovers", "Life Orb"]
+	},
+	"flygonkalos": {
+		"essentialMoves": ["Bug Buzz"],
+		"movepool": ["Bug Buzz", "Dragon Claw", "Dragon Dance", "Scale Shot", "Earth Power", "Rock Slide", "Leech Life"],
+		"abilities": ["Coleóptero"],
+		"items": ["Life Orb", "Choice Band", "Lum Berry"]
+	},
+	"cefireon": {
+		"essentialMoves": ["Hurricane"],
+		"movepool": ["Hurricane", "Air Slash", "Tailwind", "Defog", "Agility", "Ominous Wind", "Twister"],
+		"abilities": ["Lightning Rod", "Compound Eyes"],
+		"items": ["Heavy-Duty Boots", "Life Orb", "Choice Specs"]
+	},
+	"maidible": {
+		"essentialMoves": ["Jaw Lock", "Play Rough"],
+		"movepool": ["Jaw Lock", "Play Rough", "Iron Head", "Spirit Break", "Sucker Punch", "Stockpile", "Swallow"],
+		"abilities": ["Sheer Force", "Intimidate"],
+		"items": ["Life Orb", "Leftovers", "Choice Band"]
+	},
+	"zippectre": {
+		"essentialMoves": ["Spirit Shackle", "Poltergeist"],
+		"movepool": ["Spirit Shackle", "Poltergeist", "Shadow Sneak", "Sucker Punch", "Knock Off", "Will-O-Wisp"],
+		"abilities": ["Prankster", "Cursed Body"],
+		"items": ["Heavy-Duty Boots", "Life Orb", "Focus Sash"]
+	},
+	"soundow": {
+		"essentialMoves": ["Boomburst"],
+		"movepool": ["Boomburst", "Return", "Double-Edge", "Heal Pulse", "Misty Terrain", "Hyper Voice"],
+		"abilities": ["Regenerator", "Triage"],
+		"items": ["Leftovers", "Assault Vest", "Sitrus Berry"]
+	},
+	"cherrilier": {
+		"essentialMoves": ["Vinisurtido"],
+		"movepool": ["Vinisurtido", "Sludge Wave", "Giga Drain", "Psychic", "Strength Sap", "Morning Sun", "Sludge Bomb", "Psyshock"],
+		"abilities": ["Pedante", "Berserk"],
+		"items": ["Life Orb", "Leftovers", "Black Sludge"]
+	},
+	"royaleon": {
+		"essentialMoves": ["Judgment", "Hyper Voice"],
+		"movepool": ["Judgment", "Hyper Voice", "Lovely Kiss", "Cotton Guard", "Fake Out", "Baton Pass", "Perish Song"],
+		"abilities": ["Realeza", "Fur Coat"],
+		"items": ["Leftovers", "Heavy-Duty Boots", "Silk Scarf"]
+	},
+	"gourmaus": {
+		"essentialMoves": ["Dulce Festín"],
+		"movepool": ["Dulce Festín", "Play Rough", "Body Press", "Body Slam", "Flare Blitz", "Super Fang", "Encore"],
+		"abilities": ["Thick Fat", "Gluttony"],
+		"items": ["Leftovers", "Sitrus Berry", "Life Orb"]
+	},
+	"halcombate": {
+		"essentialMoves": ["Alabis", "Flying Press"],
+		"movepool": ["Alabis", "Flying Press", "Hi Jump Kick", "Knock Off", "Roost", "Swords Dance", "Body Slam"],
+		"abilities": ["Aerilate", "Limber"],
+		"items": ["Life Orb", "Heavy-Duty Boots", "Choice Band"]
+	},
+	"serdupla": {
+		"essentialMoves": ["Poison Jab", "Dragon Claw"],
+		"movepool": ["Poison Jab", "Dragon Claw", "Outrage", "Coil", "Dragon Dance", "Glare", "Crunch", "Venoshock"],
+		"abilities": ["Parental Bond", "Merciless"],
+		"items": ["Life Orb", "Black Sludge", "Lum Berry"]
+	},
+	"zanghoul": {
+		"essentialMoves": ["Shadow Claw", "Dire Claw"],
+		"movepool": ["Shadow Claw", "Dire Claw", "Facade", "Close Combat", "Chulería", "Swords Dance", "Phantom Force"],
+		"abilities": ["Toxic Boost", "Brutalidad"],
+		"items": ["Toxic Orb"]
+	},
+	"freyjynx": {
+		"essentialMoves": ["Hyper Voice", "Ice Beam"],
+		"movepool": ["Hyper Voice", "Ice Beam", "Psychic", "Psyshock", "Lovely Kiss", "Blizzard", "Perish Song"],
+		"abilities": ["Voz de Valquiria", "Dry Skin"],
+		"items": ["Life Orb", "Choice Specs", "Focus Sash", "Heavy-Duty Boots"]
+	},
+	"fobeto": {
+		"essentialMoves": ["Choque Mental", "Dark Pulse"],
+		"movepool": ["Choque Mental", "Dark Pulse", "Nasty Plot", "Psychic", "Night Daze", "Hypnosis", "Dream Eater"],
+		"abilities": ["Gran Pesadilla", "Espanto"],
+		"items": ["Life Orb", "Focus Sash", "Leftovers"]
+	},
+	"constellar": {
+		"essentialMoves": ["Eclipse", "Meteor Beam"],
+		"movepool": ["Eclipse", "Meteor Beam", "Psychic", "Psyshock", "Power Gem", "Flamethrower", "Flare Blitz", "Calm Mind", "Cosmic Power"],
+		"abilities": ["Levitate"],
+		"items": ["Power Herb", "Life Orb", "Leftovers"]
+	},
+	"luvourne": {
+		"essentialMoves": ["Corazón Roto"],
+		"movepool": ["Corazón Roto", "Moonblast", "Hydro Pump", "Dark Pulse", "Nasty Plot", "Draining Kiss", "Agility"],
+		"abilities": ["Multiscale", "Marvel Scale"],
+		"items": ["Heavy-Duty Boots", "Life Orb", "Leftovers"]
+	},
+	"marolier": {
+		"essentialMoves": ["Ferroespada"],
+		"movepool": ["Ferroespada", "Ferromaza", "Earthquake", "Head Smash", "Knock Off", "Shadow Bone", "Flare Blitz", "Cortepetreo"],
+		"abilities": ["Rock Head", "Sheer Force"],
+		"items": ["Choice Band", "Life Orb", "Leftovers", "Assault Vest"]
+	},
+	"sudrasil": {
+		"essentialMoves": ["Petromazazo"],
+		"movepool": ["Petromazazo", "Stone Axe", "Wood Hammer", "Sucker Punch", "Hammer Arm", "Body Press", "Stone Edge"],
+		"abilities": ["Reckless", "Grassy Surge", "Sturdy"],
+		"items": ["Choice Band", "Leftovers", "Assault Vest", "Life Orb"]
+	}
+}

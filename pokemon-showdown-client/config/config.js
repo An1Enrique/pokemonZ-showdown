@@ -17,7 +17,7 @@ Config.customcolors = {
 };
 
 /*** Begin automatically generated configuration ***/
-Config.version = "0.11.2 (1e54fbea)";
+Config.version = "0.11.2 (8884c7bc)";
 Config.translationCachebuster = "a8900b40";
 
 Config.routes = {

@@ -1228,13 +1228,16 @@ var speedModifiers=[];
 
 
 
-if(item==='lightball'&&speciesName==='Pikachu'&&this.battle.gen!==4){
+if(item==='lightball'&&(speciesName==='Pikachu'||speciesName.startsWith('Pikachu'))&&this.battle.gen!==4){
 if(this.battle.gen>4)stats.atk*=2;
 stats.spa*=2;
 }
 
-if(item==='thickclub'){
-if(speciesName==='Marowak'||speciesName==='Cubone'){
+if(item==='thickclub'||item==='huesogrueso'||item==='laggingtail'||item==='colaplumbea'){
+if(
+speciesName==='Marowak'||speciesName==='Cubone'||speciesName==='Marolier'||
+speciesName.startsWith('Marowak')||speciesName.startsWith('Cubone'))
+{
 stats.atk*=2;
 }
 }

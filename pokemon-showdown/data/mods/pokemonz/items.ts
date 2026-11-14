@@ -1619,4 +1619,100 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		gen: 9,
 		desc: 'El daño de los golpes críticos aumenta un 40%.',
 	},
+	thickclub: {
+		inherit: true,
+		isNonstandard: null,
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies === 'Cubone' ||
+				pokemon.baseSpecies.baseSpecies === 'Marowak' ||
+				pokemon.baseSpecies.baseSpecies === 'Marolier' ||
+				pokemon.baseSpecies.name === 'Marolier' ||
+				pokemon.baseSpecies.name.startsWith('Marowak') ||
+				pokemon.baseSpecies.name.startsWith('Cubone')
+			) {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: [
+			"Marowak", "Marowak-Alola", "Marowak-Alola-Totem", "Marowak-Kalos",
+			"Cubone", "Cubone-Kalos", "Marolier",
+		],
+		desc: "Si lo lleva Cubone, Marowak o Marolier, su Ataque se duplica.",
+	},
+	huesogrueso: {
+		num: 258,
+		name: "Hueso Grueso",
+		spritenum: 491,
+		fling: { basePower: 90 },
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies === 'Cubone' ||
+				pokemon.baseSpecies.baseSpecies === 'Marowak' ||
+				pokemon.baseSpecies.baseSpecies === 'Marolier' ||
+				pokemon.baseSpecies.name === 'Marolier' ||
+				pokemon.baseSpecies.name.startsWith('Marowak') ||
+				pokemon.baseSpecies.name.startsWith('Cubone')
+			) {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: [
+			"Marowak", "Marowak-Alola", "Marowak-Alola-Totem", "Marowak-Kalos",
+			"Cubone", "Cubone-Kalos", "Marolier",
+		],
+		gen: 9,
+		desc: "Si lo lleva Cubone, Marowak o Marolier, su Ataque se duplica.",
+	},
+	laggingtail: {
+		inherit: true,
+		isNonstandard: null,
+		onFractionalPriority: -0.1,
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies === 'Cubone' ||
+				pokemon.baseSpecies.baseSpecies === 'Marowak' ||
+				pokemon.baseSpecies.baseSpecies === 'Marolier' ||
+				pokemon.baseSpecies.name === 'Marolier' ||
+				pokemon.baseSpecies.name.startsWith('Marowak') ||
+				pokemon.baseSpecies.name.startsWith('Cubone')
+			) {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: [
+			"Marowak", "Marowak-Alola", "Marowak-Alola-Totem", "Marowak-Kalos",
+			"Cubone", "Cubone-Kalos", "Marolier",
+		],
+		desc: "El portador siempre ataca el último en su prioridad. Duplica el Ataque de Marowak y Marolier.",
+	},
+	colaplumbea: {
+		num: 279,
+		name: "Cola Plúmbea",
+		spritenum: 237,
+		fling: { basePower: 10 },
+		onFractionalPriority: -0.1,
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies === 'Cubone' ||
+				pokemon.baseSpecies.baseSpecies === 'Marowak' ||
+				pokemon.baseSpecies.baseSpecies === 'Marolier' ||
+				pokemon.baseSpecies.name === 'Marolier' ||
+				pokemon.baseSpecies.name.startsWith('Marowak') ||
+				pokemon.baseSpecies.name.startsWith('Cubone')
+			) {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: [
+			"Marowak", "Marowak-Alola", "Marowak-Alola-Totem", "Marowak-Kalos",
+			"Cubone", "Cubone-Kalos", "Marolier",
+		],
+		gen: 9,
+		desc: "El portador siempre ataca el último en su prioridad. Duplica el Ataque de Marowak y Marolier.",
+	},
 };
